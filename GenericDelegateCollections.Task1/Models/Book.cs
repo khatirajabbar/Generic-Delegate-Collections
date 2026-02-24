@@ -9,7 +9,7 @@ public class Book : IEntity
     public int Id { get; }
     private static int ID;
 
-     public Book (string name, string author, int pageCount)
+    public Book(string name, string author, int pageCount)
     {
         Id = ++ID;
         Name = name;
@@ -17,8 +17,9 @@ public class Book : IEntity
         PageCount = pageCount;
         IsDeleted = false;
     }
-     public void ShowInfo ()   
-     {
+
+    public void ShowInfo()
+    {
         Console.WriteLine($"Name: {Name}, Author: {Author}, PageCount: {PageCount}");
-     }
+    }
 }

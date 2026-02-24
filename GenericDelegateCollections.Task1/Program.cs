@@ -5,15 +5,15 @@ namespace GenericDelegateCollections.Task1;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Library ChapterHouse = new Library(10);
+        Library chapterHouse = new Library(10);
         Book book1 = new Book("The Name of the Wind", "Patrick Rothfuss", 662);
         Book book2 = new Book("The Wise Man's Fear", "Patrick Rothfuss", 994);
         Book book3 = new Book("The Doors of Stone", "Patrick Rothfuss", 1200);
-        ChapterHouse.AddBook(book1);
-        ChapterHouse.AddBook(book2);
-        ChapterHouse.AddBook(book3);
+        chapterHouse.AddBook(book1);
+        chapterHouse.AddBook(book2);
+        chapterHouse.AddBook(book3);
         Console.WriteLine("welcome to the library, please enter your username:");
         string username = Console.ReadLine();
         Console.WriteLine("please enter your email:");
@@ -63,7 +63,7 @@ class Program
                         Book newBook = new Book(bookName, bookAuthor, pageCount);
                         try
                         {
-                            ChapterHouse.AddBook(newBook);
+                            chapterHouse.AddBook(newBook);
                             Console.WriteLine("Book added successfully!");
                         }
                         catch (Exception ex)
@@ -80,11 +80,19 @@ class Program
                 case "2":
                     Console.WriteLine("Enter book ID:");
                     int bookId = int.Parse(Console.ReadLine());
-                    Book newBook1 = ChapterHouse.GetBookById(bookId);
-                    newBook1.ShowInfo();
+                    try
+                    {
+                        Book newBook1 = chapterHouse.GetBookById(bookId);
+                        newBook1.ShowInfo();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
                     break;
                 case "3":
-                    List<Book> allBooks = ChapterHouse.GetAllBooks();
+                    List<Book> allBooks = chapterHouse.GetAllBooks();
                     foreach (var item in allBooks)
                     {
                         item.ShowInfo();
@@ -98,7 +106,7 @@ class Program
                         int deleteBookId = int.Parse(Console.ReadLine());
                         try
                         {
-                            ChapterHouse.DeleteBookById(deleteBookId);
+                            chapterHouse.DeleteBookById(deleteBookId);
                             Console.WriteLine("Book deleted successfully!");
                         }
                         catch (Exception ex)
@@ -110,6 +118,7 @@ class Program
                     {
                         Console.WriteLine("You do not have permission to delete books.");
                     }
+
                     break;
                 case "5":
                     if (user.Role == Role.Admin)
@@ -118,7 +127,7 @@ class Program
                         int editBookId = int.Parse(Console.ReadLine());
                         try
                         {
-                            ChapterHouse.EditBookName(editBookId);
+                            chapterHouse.EditBookName(editBookId);
                             Console.WriteLine("Book name edited successfully!");
                         }
                         catch (Exception ex)
@@ -130,6 +139,7 @@ class Program
                     {
                         Console.WriteLine("You do not have permission to edit books.");
                     }
+
                     break;
                 case "6":
                     Console.WriteLine("Enter minimum page count:");
@@ -143,11 +153,11 @@ class Program
                     int maxPageCount;
                     while (!int.TryParse(Console.ReadLine(), out maxPageCount) || maxPageCount < minPageCount)
                     {
-                        Console.WriteLine(
-                            $"Invalid input. Please enter an integer greater than or equal to {minPageCount} for maximum page count:");
+                        Console.WriteLine
+                            ($"Invalid input. Please enter an integer greater than or equal to {minPageCount} for maximum page count:");
                     }
 
-                    List<Book> filteredBooks = ChapterHouse.FilterByPageCount(minPageCount, maxPageCount);
+                    List<Book> filteredBooks = chapterHouse.FilterByPageCount(minPageCount, maxPageCount);
                     if (filteredBooks.Count > 0)
                     {
                         Console.WriteLine("Books matching the page count criteria:");

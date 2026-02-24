@@ -8,7 +8,7 @@ public class Library : IEntity
     public int Id { get; }
     private static int ID;
     private List<Book> books = new List<Book>();
-    
+
 
     public Library(long bookLimit)
     {
@@ -25,19 +25,22 @@ public class Library : IEntity
                 throw new AlreadyExistsException("This book already exists in the library.");
             }
         }
-        if (books.Count +1 > BookLimit)
+
+        if (books.Count + 1 > BookLimit)
         {
             throw new CapacityLimitException("Book limit exceeded.");
         }
+
         books.Add(book);
     }
 
     public Book GetBookById(int? id)
     {
-        if (id == null )
+        if (id == null)
         {
             throw new NullReferenceException("Id cannot be null.");
         }
+
         foreach (var item in books)
         {
             if (item.Id == id && item.IsDeleted == false)
@@ -45,7 +48,8 @@ public class Library : IEntity
                 return item;
             }
         }
-        return null;
+
+        throw new NotFoundException($"There's no book with this Id in the library.");
     }
 
     public List<Book> GetAllBooks()
@@ -58,6 +62,7 @@ public class Library : IEntity
                 NewBooks.Add(item);
             }
         }
+
         return NewBooks;
     }
 
@@ -97,8 +102,10 @@ public class Library : IEntity
                 return;
             }
         }
+
         throw new NotFoundException("Book not found.");
     }
+
     public List<Book> FilterByPageCount(int minPageCount, int maxPageCount)
     {
         List<Book> filteredBooks = new List<Book>();
@@ -109,7 +116,7 @@ public class Library : IEntity
                 filteredBooks.Add(item);
             }
         }
+
         return filteredBooks;
     }
-
 }
