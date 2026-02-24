@@ -16,3 +16,4 @@
 /Users/khatira/Desktop/Generic Delegate Collections /GenericDelegateCollections.Task1/obj/Debug/net10.0/GenericDelegateCollections.Task1.pdb
 /Users/khatira/Desktop/Generic Delegate Collections /GenericDelegateCollections.Task1/obj/Debug/net10.0/GenericDelegateCollections.Task1.genruntimeconfig.cache
 /Users/khatira/Desktop/Generic Delegate Collections /GenericDelegateCollections.Task1/obj/Debug/net10.0/ref/GenericDelegateCollections.Task1.dll
+/Users/khatira/Desktop/Generic Delegate Collections /GenericDelegateCollections.Task1/obj/Debug/net10.0/GenericDelegateCollections.Task1.sourcelink.json

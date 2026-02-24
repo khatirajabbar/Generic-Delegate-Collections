@@ -9,3 +9,4 @@
 /Users/khatira/Desktop/Generic Delegate Collections /Utils/obj/Debug/net10.0/refint/Utils.dll
 /Users/khatira/Desktop/Generic Delegate Collections /Utils/obj/Debug/net10.0/Utils.pdb
 /Users/khatira/Desktop/Generic Delegate Collections /Utils/obj/Debug/net10.0/ref/Utils.dll
+/Users/khatira/Desktop/Generic Delegate Collections /Utils/obj/Debug/net10.0/Utils.sourcelink.json
